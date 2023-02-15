@@ -17,6 +17,12 @@
     </item>
     <item>
      <ID>S</ID>
+     <KEY>P_PLAYER</KEY>
+     <ENTRY>Seceond player(OD)</ENTRY>
+     <LENGTH>26</LENGTH>
+    </item>
+    <item>
+     <ID>S</ID>
      <KEY>P_RADIO1</KEY>
      <ENTRY>Single Player</ENTRY>
      <LENGTH>21</LENGTH>
@@ -30,7 +36,7 @@
     <item>
      <ID>S</ID>
      <KEY>P_RADIO3</KEY>
-     <ENTRY>Multiplayer - OnDemand (UN)</ENTRY>
+     <ENTRY>Multiplayer - OnDemand</ENTRY>
      <LENGTH>35</LENGTH>
     </item>
    </TPOOL>

@@ -81,7 +81,7 @@ FORM singleplayer.
   PERFORM check_result.
   IF done EQ abap_true.
     PERFORM empty_cells.
-    EXIT.
+    done = abap_false.
   ENDIF.
 
 ENDFORM.

@@ -2,8 +2,6 @@
 *& Include          ZTIC_TAC_TOE_FORMS
 *&---------------------------------------------------------------------*
 FORM action.
-  PERFORM make_winning_Move.
-  PERFORM count USING 'O'.
   PERFORM count USING 'X'.
   PERFORM find_max_point.
   PERFORM count_occurances.
@@ -23,7 +21,7 @@ FORM make_move.
   counter = 1.
   DO 7 TIMES.
     IF count_x > count_o.
-      IF max <= col1.
+      IF max >= col1.
         IF  p1 NE 'X' AND p1 NE 'O'.
           p1 = 'O'.
           EXIT.
@@ -36,7 +34,7 @@ FORM make_move.
         ELSE .
           PERFORM find_next_max USING counter.
         ENDIF.
-      ELSEIF max <= col2.
+      ELSEIF max >= col2.
         IF  p2 NE 'X' AND p2 NE 'O'.
           p2 = 'O'.
           EXIT.
@@ -50,7 +48,7 @@ FORM make_move.
           PERFORM find_next_max USING counter.
         ENDIF.
 
-      ELSEIF max <= col3.
+      ELSEIF max >= col3.
         IF  p3 NE 'X' AND p3 NE 'O'.
           p3 = 'O'.
           EXIT.
@@ -64,7 +62,7 @@ FORM make_move.
           PERFORM find_next_max USING counter.
         ENDIF.
 
-      ELSEIF max <= row1.
+      ELSEIF max >= row1.
         IF  p1 NE 'X' AND p1 NE 'O'.
           p1 = 'O'.
           EXIT.
@@ -78,7 +76,7 @@ FORM make_move.
           PERFORM find_next_max USING counter.
         ENDIF.
 
-      ELSEIF max <= row2.
+      ELSEIF max >= row2.
         IF  p4 NE 'X' AND p4 NE 'O'.
           p4 = 'O'.
           EXIT.
@@ -92,7 +90,7 @@ FORM make_move.
           PERFORM find_next_max USING counter.
         ENDIF.
 
-      ELSEIF max <= row3.
+      ELSEIF max >= row3.
         IF  p7 NE 'X' AND p7 NE 'O'.
           p7 = 'O'.
           EXIT.
@@ -106,7 +104,7 @@ FORM make_move.
           PERFORM find_next_max USING counter.
         ENDIF.
 
-      ELSEIF max <= dia1.
+      ELSEIF max >= dia1.
         IF  p1 NE 'X' AND p1 NE 'O'.
           p1 = 'O'.
           EXIT.
@@ -120,7 +118,7 @@ FORM make_move.
           PERFORM find_next_max USING counter.
         ENDIF.
 
-      ELSEIF max <= dia2.
+      ELSEIF max >= dia2.
         IF  p3 NE 'X' AND p3 NE 'O'.
           p1 = 'O'.
           EXIT.
@@ -209,17 +207,6 @@ FORM empty_cells.
   p7 = ''.
   p8 = ''.
   p9 = ''.
-
-*  p_1 = 'l'.
-*  p_2 = 'i'.
-*  p_3 = 'u'.
-*  p_4 = 'y'.
-*  p_5 = 't'.
-*  p_6 = 'r'.
-*  p_7 = 'e'.
-*  p_8 = 'w'.
-*  p_9 = 'q'.
-
 ENDFORM.
 
 FORM count USING move.

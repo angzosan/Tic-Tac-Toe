@@ -4,6 +4,7 @@
 *&
 *&---------------------------------------------------------------------*
 REPORT ztic_tac_toe_agz.
+tables: ZTIC_TAC_TOE_AGZ.
 INCLUDE ZTIC_TAC_TOE_TOP2.
 INCLUDE ZTIC_TAC_TOE_SCREEN2.
 INCLUDE ZTIC_TAC_TOE_FORMS2.
