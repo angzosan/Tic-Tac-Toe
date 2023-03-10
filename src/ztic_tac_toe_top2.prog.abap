@@ -7,18 +7,16 @@ DATA: max TYPE i VALUE 0.
 DATA: count_x TYPE i VALUE 0.
 DATA: count_o TYPE i VALUE 0.
 
-  data mode type abap_bool VALUE abap_true.
+data: total type i.
 
-" DECLARE STRUCTURE
-*DATA: p_1(20) TYPE c VALUE 'l',
-*      p_2(20) TYPE c VALUE 'i',
-*      p_3(20) TYPE c VALUE 'u',
-*      p_4(20) TYPE c VALUE 'y',
-*      p_5(20) TYPE c VALUE 't',
-*      p_6(20) TYPE c VALUE 'r',
-*      p_7(20) TYPE c VALUE 'e',
-*      p_8(20) TYPE c VALUE 'w',
-*      p_9(20) TYPE c VALUE 'q'.
+data: player1 type char50.
+data: player2 type char50.
+
+data: total_prev type i.
+
+data: mode type abap_bool VALUE abap_true.
+data: retrieve type abap_bool value abap_false.
+
 
 DATA: col1 TYPE i VALUE 0,
       col2 TYPE i VALUE 0,

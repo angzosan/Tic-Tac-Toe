@@ -12,14 +12,20 @@
    <TPOOL>
     <item>
      <ID>R</ID>
-     <ENTRY>Test</ENTRY>
-     <LENGTH>4</LENGTH>
+     <ENTRY>Tic Tac Toe</ENTRY>
+     <LENGTH>11</LENGTH>
     </item>
     <item>
      <ID>S</ID>
-     <KEY>P_PLAYER</KEY>
-     <ENTRY>Seceond player(OD)</ENTRY>
-     <LENGTH>26</LENGTH>
+     <KEY>P_PLA_EM</KEY>
+     <ENTRY>Secord player (email)</ENTRY>
+     <LENGTH>29</LENGTH>
+    </item>
+    <item>
+     <ID>S</ID>
+     <KEY>P_PLA_NM</KEY>
+     <ENTRY>Secord player (name)</ENTRY>
+     <LENGTH>28</LENGTH>
     </item>
     <item>
      <ID>S</ID>

@@ -5,7 +5,8 @@ SELECTION-SCREEN BEGIN OF BLOCK bl1.
   PARAMETERS: P_radio1 RADIOBUTTON GROUP RAD1 DEFAULT 'X',
               P_radio2 RADIOBUTTON GROUP RAD1,
               P_radio3 RADIOBUTTON GROUP RAD1,
-              p_player(50) type c.
+              p_pla_nm(50) type c,
+              p_pla_em(50) type c..
 SELECTION-SCREEN END OF block bl1.
 
 SELECTION-SCREEN BEGIN OF LINE.

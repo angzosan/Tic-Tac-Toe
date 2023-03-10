@@ -4,13 +4,15 @@
 *&
 *&---------------------------------------------------------------------*
 REPORT ztic_tac_toe_agz.
-tables: ZTIC_TAC_TOE_AGZ.
-INCLUDE ZTIC_TAC_TOE_TOP2.
-INCLUDE ZTIC_TAC_TOE_SCREEN2.
-INCLUDE ZTIC_TAC_TOE_FORMS2.
-INCLUDE ZTIC_TAC_TOE_SINGLE_PLAYER2.
-INCLUDE ZTIC_TAC_TOE_MULTI_PLAYER2.
-INCLUDE ZTIC_TAC_TOE_MULTI_PLAYER_DEM2.
+TABLES: ztic_tac_toe_agz.
+
+
+INCLUDE ztic_tac_toe_top2.
+INCLUDE ztic_tac_toe_screen2.
+INCLUDE ztic_tac_toe_forms2.
+INCLUDE ztic_tac_toe_single_player2.
+INCLUDE ztic_tac_toe_multi_player2.
+INCLUDE ztic_tac_toe_multi_player_dem2.
 
 AT SELECTION-SCREEN.
 

@@ -2,14 +2,110 @@
 *& Include          ZTIC_TAC_TOE_FORMS
 *&---------------------------------------------------------------------*
 FORM action.
+  PERFORM check_winning.
   PERFORM count USING 'X'.
   PERFORM find_max_point.
-  PERFORM count_occurances.
-  PERFORM make_winning_Move.
+*  PERFORM count_occurances.
   PERFORM make_move.
 ENDFORM.
 
-FORM make_winning_move.
+FORM check_winning.
+
+  IF  p1 EQ 'O'.
+    IF p4 EQ 'O' AND p7 NE 'X'.
+      p7 = 'O'.
+      EXIT.
+    ELSEIF p7 EQ 'O' AND p4 NE 'X'.
+      p4 = 'O'.
+      EXIT.
+
+
+    ELSEIF p5 EQ 'O' AND p9 NE 'X'.
+      p9 = 'O'.
+      EXIT.
+    ELSEIF p9 EQ 'O' AND p5 NE 'X'.
+      p5 = 'O'.
+      EXIT.
+
+
+    ELSEIF p2 EQ 'O' AND p3 NE 'X' .
+      p3 = 'O'.
+      EXIT.
+    ELSEIF p3 EQ 'O' AND p2 NE 'X'.
+      p2 = 'O'.
+      EXIT.
+    ENDIF.
+
+  ELSEIF p9 EQ 'O'.
+    IF p3 EQ 'O' AND p6 NE 'X'.
+      p6 = 'O'.
+      EXIT.
+    ELSEIF p6 EQ 'O' AND p3 NE 'X'.
+      p3 = 'O'.
+      EXIT.
+
+
+    ELSEIF p7 EQ 'O' AND p8 NE 'X'.
+      p8 = 'O'.
+      EXIT.
+    ELSEIF p8 EQ 'O' AND p7 NE 'X'.
+      p7 = 'O'.
+      EXIT.
+*    ELSEIF p1 EQ 'O' AND p5 NE 'X' .
+*      p5= 'O'.
+*      EXIT.
+    ELSEIF p5 EQ 'O' AND p1 NE 'X'.
+      p2 = 'O'.
+      EXIT.
+    ENDIF.
+
+
+  ELSEIF p3 EQ 'O'.
+*    IF p9 EQ 'O' AND p6 NE 'X'.
+*      p6 = 'O'.
+*      EXIT.
+*    ELSE
+    IF p2 EQ 'O' AND p1 NE 'X'.
+      p1 = 'O'.
+      EXIT.
+    ELSEIF p7 EQ 'O' AND p5 NE 'X'.
+      p5 = 'O'.
+      EXIT.
+    ELSEIF p5 EQ 'O' AND p7 NE 'X'.
+      p7 = 'O'.
+      EXIT.
+*    ELSEIF p1 EQ 'O' AND p5 NE 'X' .
+*      p5= 'O'.
+*      EXIT.
+*    ELSEIF p5 EQ 'O' AND p1 NE 'X'.
+*      p2 = 'O'.
+*      EXIT.
+    ENDIF.
+
+
+  ELSEIF p7 EQ 'O'.
+*    IF p9 EQ 'O' AND p6 NE 'X'.
+*      p6 = 'O'.
+*      EXIT.
+*    ELSE
+    IF p4 EQ 'O' AND p1 NE 'X'.
+      p1 = 'O'.
+      EXIT.
+    ELSEIF p8 EQ 'O' AND p9 NE 'X'.
+      p9 = 'O'.
+      EXIT.
+    ELSEIF p5 EQ 'O' AND p3 NE 'X'.
+      p3 = 'O'.
+      EXIT.
+*    ELSEIF p1 EQ 'O' AND p5 NE 'X' .
+*      p5= 'O'.
+*      EXIT.
+*    ELSEIF p5 EQ 'O' AND p1 NE 'X'.
+*      p2 = 'O'.
+*      EXIT.
+    ENDIF.
+
+  ENDIF.
 
 ENDFORM.
 
@@ -21,7 +117,7 @@ FORM make_move.
   counter = 1.
   DO 7 TIMES.
     IF count_x > count_o.
-      IF max >= col1.
+      IF max = col1.
         IF  p1 NE 'X' AND p1 NE 'O'.
           p1 = 'O'.
           EXIT.
@@ -34,7 +130,7 @@ FORM make_move.
         ELSE .
           PERFORM find_next_max USING counter.
         ENDIF.
-      ELSEIF max >= col2.
+      ELSEIF max = col2.
         IF  p2 NE 'X' AND p2 NE 'O'.
           p2 = 'O'.
           EXIT.
@@ -48,7 +144,7 @@ FORM make_move.
           PERFORM find_next_max USING counter.
         ENDIF.
 
-      ELSEIF max >= col3.
+      ELSEIF max = col3.
         IF  p3 NE 'X' AND p3 NE 'O'.
           p3 = 'O'.
           EXIT.
@@ -62,7 +158,7 @@ FORM make_move.
           PERFORM find_next_max USING counter.
         ENDIF.
 
-      ELSEIF max >= row1.
+      ELSEIF max = row1.
         IF  p1 NE 'X' AND p1 NE 'O'.
           p1 = 'O'.
           EXIT.
@@ -76,7 +172,7 @@ FORM make_move.
           PERFORM find_next_max USING counter.
         ENDIF.
 
-      ELSEIF max >= row2.
+      ELSEIF max = row2.
         IF  p4 NE 'X' AND p4 NE 'O'.
           p4 = 'O'.
           EXIT.
@@ -90,7 +186,7 @@ FORM make_move.
           PERFORM find_next_max USING counter.
         ENDIF.
 
-      ELSEIF max >= row3.
+      ELSEIF max = row3.
         IF  p7 NE 'X' AND p7 NE 'O'.
           p7 = 'O'.
           EXIT.
@@ -104,7 +200,7 @@ FORM make_move.
           PERFORM find_next_max USING counter.
         ENDIF.
 
-      ELSEIF max >= dia1.
+      ELSEIF max = dia1.
         IF  p1 NE 'X' AND p1 NE 'O'.
           p1 = 'O'.
           EXIT.
@@ -118,9 +214,9 @@ FORM make_move.
           PERFORM find_next_max USING counter.
         ENDIF.
 
-      ELSEIF max >= dia2.
+      ELSEIF max = dia2.
         IF  p3 NE 'X' AND p3 NE 'O'.
-          p1 = 'O'.
+          p3 = 'O'.
           EXIT.
         ELSEIF p5 NE 'X' AND p5 NE 'O'.
           p5 = 'O'.
@@ -210,6 +306,14 @@ FORM empty_cells.
 ENDFORM.
 
 FORM count USING move.
+  row1 = 0.
+  row2 = 0.
+  row3 = 0.
+  col1 = 0.
+  col2 = 0.
+  col3 = 0.
+  dia1 = 0.
+  dia2 = 0.
   IF p1 = move OR p2 = move.
     IF p1 = move.
       row1 = row1 + 1.
@@ -220,46 +324,46 @@ FORM count USING move.
       row1 = row1 + 1.
       col2 = col2 + 1.
     ENDIF.
-ENDIF.
-    IF p3 = move OR p4 = move.
-      IF p3 = move.
-        row1 = row1 + 1.
-        col3 = col3 + 1.
-        dia2 = dia2 + 1.
-      ENDIF.
-      IF p4 = move.
-        row2 = row2 + 1.
-        col1 = col1 + 1.
-      ENDIF.
-    ENDIF.
-    IF p5 = move OR p6 = move.
-      IF p5 = move.
-        row2 = row2 + 1.
-        col2 = col2 + 1.
-        dia1 = dia1 + 1.
-        dia2 = dia2 + 1.
-      ENDIF.
-      IF p6 = move.
-        row2 = row2 + 1.
-        col3 = col3 + 1.
-      ENDIF.
-    ENDIF.
-    IF p7 = move OR p8 = move.
-      IF p7 = move.
-        row3 = row3 + 1.
-        col1 = col1 + 1.
-        dia2 = dia2 + 1.
-      ENDIF.
-      IF p8 = move.
-        row3 = row3 + 1.
-        col2 = col2 + 1.
-      ENDIF.
-    ENDIF.
-    IF p9 = move.
-      row3 = row3 + 1.
+  ENDIF.
+  IF p3 = move OR p4 = move.
+    IF p3 = move.
+      row1 = row1 + 1.
       col3 = col3 + 1.
-      dia1 = dia1 + 1.
+      dia2 = dia2 + 1.
     ENDIF.
+    IF p4 = move.
+      row2 = row2 + 1.
+      col1 = col1 + 1.
+    ENDIF.
+  ENDIF.
+  IF p5 = move OR p6 = move.
+    IF p5 = move.
+      row2 = row2 + 1.
+      col2 = col2 + 1.
+      dia1 = dia1 + 1.
+      dia2 = dia2 + 1.
+    ENDIF.
+    IF p6 = move.
+      row2 = row2 + 1.
+      col3 = col3 + 1.
+    ENDIF.
+  ENDIF.
+  IF p7 = move OR p8 = move.
+    IF p7 = move.
+      row3 = row3 + 1.
+      col1 = col1 + 1.
+      dia2 = dia2 + 1.
+    ENDIF.
+    IF p8 = move.
+      row3 = row3 + 1.
+      col2 = col2 + 1.
+    ENDIF.
+  ENDIF.
+  IF p9 = move.
+    row3 = row3 + 1.
+    col3 = col3 + 1.
+    dia1 = dia1 + 1.
+  ENDIF.
 ENDFORM.
 
 FORM find_max_point.
@@ -430,4 +534,60 @@ FORM sort.
 
 
   SORT lt_max BY value DESCENDING.
+ENDFORM.
+
+FORM check_input CHANGING input.
+  IF p1 NE 'X' AND p1 NE 'O' AND p1 NE ''.
+    input = abap_false.
+    p1 = ''.
+    RETURN.
+  ENDIF.
+
+  IF p2 NE 'X' AND p2 NE 'O' AND p2 NE ''.
+    input = abap_false.
+     p2 = ''.
+    RETURN.
+  ENDIF.
+
+  IF p3 NE 'X' AND p3 NE 'O' AND p3 NE ''.
+    input = abap_false.
+     p3 = ''.
+    RETURN.
+  ENDIF.
+
+  IF p4 NE 'X' AND p4 NE 'O' AND p4 NE ''.
+    input = abap_false.
+     p4 = ''.
+    RETURN.
+  ENDIF.
+
+  IF p5 NE 'X' AND p5 NE 'O' AND p5 NE ''.
+    input = abap_false.
+     p5 = ''.
+    RETURN.
+  ENDIF.
+
+  IF p6 NE 'X' AND p6 NE 'O' AND p6 NE ''.
+    input = abap_false.
+     p6 = ''.
+    RETURN.
+  ENDIF.
+
+  IF p7 NE 'X' AND p7 NE 'O' AND p7 NE ''.
+    input = abap_false.
+     p7 = ''.
+    RETURN.
+  ENDIF.
+
+  IF p8 NE 'X' AND p8 NE 'O' AND p8 NE ''.
+    input = abap_false.
+     p8 = ''.
+    RETURN.
+  ENDIF.
+
+  IF p9 NE 'X' AND p9 NE 'O' AND p9 NE ''.
+    input = abap_false.
+     p9 = ''.
+    RETURN.
+  ENDIF.
 ENDFORM.
