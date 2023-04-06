@@ -44,8 +44,6 @@ ENDFORM.
 
 FORM multiplayer_ondemand.
 
-
-
   IF retrieve = abap_false.
     SELECT SINGLE * FROM ztic_tac_toe_agz INTO  @DATA(wa_data) WHERE ( zplayer1 = @sy-uname OR zplayer2 = @sy-uname ).
     IF sy-subrc = 0.
