@@ -5,7 +5,7 @@ FORM action.
   PERFORM check_winning.
   PERFORM count USING 'X'.
   PERFORM find_max_point.
-*  PERFORM count_occurances.
+  PERFORM count_occurances.
   PERFORM make_move.
 ENDFORM.
 
